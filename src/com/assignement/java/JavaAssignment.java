@@ -35,7 +35,7 @@ public class JavaAssignment {
 		String result = "";
 		for(int i=0;i<wordArray.length;i++){
 			if(wordArray[i].startsWith(prefix))
-				result = result + wordArray[i] + " , " + wordMap.get(wordArray[i]) + "<br>";
+				result = result + wordArray[i] + " " + "," + " " + wordMap.get(wordArray[i]) + "<br>";
 		}
 		return result;
 	}
