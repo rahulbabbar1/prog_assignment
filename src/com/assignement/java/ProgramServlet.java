@@ -42,9 +42,9 @@ public class ProgramServlet extends HttpServlet {
 		String filename = "C:\\Users\\rahul\\workspace\\java_assign\\alice30.txt";
 		HashMap <String, Integer> wordMap = JavaAssignment.getWordMap(filename);
 		
-		JavaAssignment.printWordsWithPrefix(wordMap,prefix);
+		String result = JavaAssignment.getListWithPrefix(wordMap,prefix);
 		
-		request.setAttribute("message", "Upload has been done successfully!");
+		request.setAttribute("message", "<h2>The words with prefix \"" + prefix + "\" and their corresponding counts are <br> </h2>" + result);
 		getServletContext().getRequestDispatcher("/result.jsp").forward(request, response);
 	}
 

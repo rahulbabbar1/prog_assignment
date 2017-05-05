@@ -17,12 +17,8 @@ public class JavaAssignment {
 	}
 	
 	public static void printWordsWithPrefix(HashMap <String, Integer> wordMap, String prefix){
-		Set<String> wordSet = wordMap.keySet();
-		String[] wordArray = wordSet.toArray(new String[wordSet.size()]);
-		for(int i=0;i<wordArray.length;i++){
-			if(wordArray[i].startsWith(prefix))
-				System.out.println(wordArray[i]+","+wordMap.get(wordArray[i]));
-		}
+		String result = getListWithPrefix(wordMap, prefix);
+		System.out.print(result);
 	}
 	
 	public static void printWordMap(HashMap <String, Integer> wordMap){
@@ -31,6 +27,17 @@ public class JavaAssignment {
 		for(int i=0;i<wordArray.length;i++){
 			System.out.println(wordArray[i]+","+wordMap.get(wordArray[i]));
 		}
+	}
+	
+	public static String getListWithPrefix(HashMap <String, Integer> wordMap, String prefix){
+		Set<String> wordSet = wordMap.keySet();
+		String[] wordArray = wordSet.toArray(new String[wordSet.size()]);
+		String result = "";
+		for(int i=0;i<wordArray.length;i++){
+			if(wordArray[i].startsWith(prefix))
+				result = result + wordArray[i] + " , " + wordMap.get(wordArray[i]) + "<br>";
+		}
+		return result;
 	}
 	
 	

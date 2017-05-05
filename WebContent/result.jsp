@@ -8,7 +8,7 @@
 </head>
 <body>
 	<center>
-        <h2>${requestScope.message}</h2>
+       ${requestScope.message}
     </center>
 </body>
 </html>
