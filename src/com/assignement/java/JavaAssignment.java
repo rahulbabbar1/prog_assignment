@@ -6,13 +6,31 @@ import java.io.IOException;
 import java.util.*;  
 
 public class JavaAssignment {
-	private static final String FILENAME = "C:\\Users\\rahul\\workspace\\java_assign\\alice30.txt";
 	
 	public static void main(String[] args){
-		System.out.println("Hello World");
+//		System.out.println(args[0]);
 		
+		String filename = "C:\\Users\\rahul\\workspace\\java_assign\\alice30.txt";
+		HashMap <String, Integer> wordMap = getWordMap(filename);
+		printWordMap(wordMap);
+	}
+	
+	public static void wordsWithPrefix(HashMap <String, Integer> wordMap, String prefix){
+		
+	}
+	
+	public static void printWordMap(HashMap <String, Integer> wordMap){
+		Set<String> wordSet = wordMap.keySet();
+		String[] wordArray = wordSet.toArray(new String[wordSet.size()]);
+		for(int i=0;i<wordArray.length;i++){
+			System.out.println(wordArray[i]+","+wordMap.get(wordArray[i]));
+		}
+	}
+	
+	
+	public static HashMap<String, Integer> getWordMap(String filename){
 		HashMap<String, Integer> wordMap = new HashMap<String,Integer>();
-		Set<String> wordSet = new HashSet<>();
+//		Set<String> wordSet = new HashSet<>();
 		
 		
 		// List<String> lines = Files.readAllLines(Paths.get(arg0));
@@ -21,18 +39,18 @@ public class JavaAssignment {
 
 		try {
 
-			fr = new FileReader(FILENAME);
+			fr = new FileReader(filename);
 			br = new BufferedReader(fr);
 
 			String sCurrentLine;
 
-			br = new BufferedReader(new FileReader(FILENAME));
+			br = new BufferedReader(new FileReader(filename));
 
 			while ((sCurrentLine = br.readLine()) != null) {
 //				System.out.println(sCurrentLine);
 				String[] splited = sCurrentLine.split("\\s+");
 				for(int i=0;i<splited.length;i++){
-					wordSet.add(splited[i]);
+//					wordSet.add(splited[i]);
 					if(wordMap.containsKey(splited[i]))
 						wordMap.put(splited[i],wordMap.get(splited[i])+1);
 					else
@@ -60,9 +78,14 @@ public class JavaAssignment {
 
 			}
 		}
-		String[] wordArray = wordSet.toArray(new String[wordSet.size()]);
-		for(int i=0;i<wordArray.length;i++){
-			System.out.println(wordArray[i]+","+wordMap.get(wordArray[i]));
-		}
+		
+		return wordMap;
+		
+//		Set<String> wordSet = wordMap.keySet();
+//		String[] wordArray = wordSet.toArray(new String[wordSet.size()]);
+//		for(int i=0;i<wordArray.length;i++){
+//			System.out.println(wordArray[i]+","+wordMap.get(wordArray[i]));
+//		}
+
 	}
 }
