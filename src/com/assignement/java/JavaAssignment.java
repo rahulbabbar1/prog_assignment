@@ -12,11 +12,17 @@ public class JavaAssignment {
 		
 		String filename = "C:\\Users\\rahul\\workspace\\java_assign\\alice30.txt";
 		HashMap <String, Integer> wordMap = getWordMap(filename);
-		printWordMap(wordMap);
+//		printWordMap(wordMap);
+		printWordsWithPrefix(wordMap,args[0]);
 	}
 	
-	public static void wordsWithPrefix(HashMap <String, Integer> wordMap, String prefix){
-		
+	public static void printWordsWithPrefix(HashMap <String, Integer> wordMap, String prefix){
+		Set<String> wordSet = wordMap.keySet();
+		String[] wordArray = wordSet.toArray(new String[wordSet.size()]);
+		for(int i=0;i<wordArray.length;i++){
+			if(wordArray[i].startsWith(prefix))
+				System.out.println(wordArray[i]+","+wordMap.get(wordArray[i]));
+		}
 	}
 	
 	public static void printWordMap(HashMap <String, Integer> wordMap){
